@@ -10,7 +10,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
    <!-- site metas -->
-   <title>Services</title>
+   <title>Berita</title>
    <meta name="keywords" content="">
    <meta name="description" content="">
    <meta name="author" content="">
@@ -123,19 +123,43 @@
    <!-- header section end -->
 
    <section>
-		<h1>B5</h1>
-		<!-- TABLE CONSTRUCTION-->
-      <table>
-         <div class="container">
-            <tr>
-               <th>id</th>
-               <th>Judul</th>
-               <th>Kategori</th>
-               <th>Tanggal</th>
-            </tr>
-         </div>	
+		<!-- services section start -->
+      <!DOCTYPE html>
+<html>
+  <head>
+   <body style="filter: grayscale(100%);">
+      <h1 style="color: black;">Daftar Berita</h1>
+      <table id="berita" style="color: black;">
+        <thead>
+          <tr>
+            <th>Judul</th>
+            <th>Kategori</th>
+            <th>Tanggal</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
       </table>
-			<!-- HEADING FORMATION -->
+  
+      <script src="BeritaTerbaru.json"></script>
+      <script>
+        fetch('BeritaTerbaru.json')
+          .then(response => response.json())
+          .then(data => {
+            let berita = document.getElementById('berita').getElementsByTagName('tbody')[0];
+            data.forEach(item => {
+              let row = berita.insertRow(-1);
+              let judulCell = row.insertCell(0);
+              let kategoriCell = row.insertCell(1);
+              let tanggalCell = row.insertCell(2);
+  
+              judulCell.innerHTML = item.judul;
+              kategoriCell.innerHTML = item.kategori;
+              tanggalCell.innerHTML = item.tanggal;
+            });
+          });
+      </script>
+  </body>
+</html>
 	</section>
          </div>
       </div>
@@ -180,51 +204,4 @@
       </div>
       </footer>
    <!-- copyright section end -->
-   <!-- Javascript files-->
-   <script>
-      $(document).ready(function () {
-
-         // FETCHING DATA FROM JSON FILE
-         $.getJSON("BeritaTerbaru.json",
-               function (data) {
-            var student = '';
-
-            // ITERATING THROUGH OBJECTS
-            $.each(data, function (key, value) {
-
-               //CONSTRUCTION OF ROWS HAVING
-               // DATA FROM JSON OBJECT
-               student += '<tr>';
-               student += '<td>' +
-                  value.id + '</td>';
-
-               student += '<td>' +
-                  value.judul + '</td>';
-
-               student += '<td>' +
-                  value.kategori + '</td>';
-
-               student += '<td>' +
-                  value.tanggal + '</td>';
-
-               student += '</tr>';
-            });
-            
-            //INSERTING ROWS INTO TABLE
-            $('#table').append(student);
-         });
-      });
-   </script>
-   <script src="js/jquery.min.js"></script>
-   <script src="js/popper.min.js"></script>
-   <script src="js/bootstrap.bundle.min.js"></script>
-   <script src="js/jquery-3.0.0.min.js"></script>
-   <script src="js/plugin.js"></script>
-   <!-- sidebar -->
-   <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-   <script src="js/custom.js"></script>
-   <!-- javascript -->
-   <script src="js/owl.carousel.js"></script>
-   <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
-
 </html>
