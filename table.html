@@ -94,6 +94,62 @@
 				});
 			</script>
 	</section>
+
+	<div class="container">
+	<table>
+		<thead>
+			<tr>
+				<br> <br>
+				<h1>Top 100 Film</h1>
+				<th>No</th>
+				<th>Gambar</th>
+				<th>Judul</th>
+				<th>Tahun</th>
+				<th>Rating</th>
+			</tr>
+		</thead>
+		<tbody id="movieTableBody">
+		</tbody>
+	</table>
+
+	<script>
+		// Ambil data JSON dari file
+		fetch('Top100Film.json')
+			.then(response => response.json())
+			.then(data => {
+				let movieTableBody = document.getElementById('movieTableBody');
+
+				// Loop untuk setiap film di data JSON
+				data.forEach(film => {
+					// Buat baris baru untuk setiap film
+					let row = movieTableBody.insertRow();
+
+					// Tambahkan nomor urut film
+					let no = row.insertCell(0);
+					no.innerHTML = film.No;
+
+					// Tambahkan gambar film
+					let gambar = row.insertCell(1);
+					let img = document.createElement('img');
+					img.src = film.Gambar;
+					img.alt = film.Judul;
+					gambar.appendChild(img);
+
+					// Tambahkan judul film
+					let judul = row.insertCell(2);
+					judul.innerHTML = film.Judul;
+
+					// Tambahkan tahun rilis film
+					let tahun = row.insertCell(3);
+					tahun.innerHTML = film.Tahun;
+
+					// Tambahkan rating film
+					let rating = row.insertCell(4);
+					rating.innerHTML = film.Rating;
+				});
+			});
+	</script>
+	</div>
 </body>
 
 </html>
