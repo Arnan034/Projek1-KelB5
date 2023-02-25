@@ -16,17 +16,19 @@ for film in driver.find_elements(By.CLASS_NAME, "media"):
     for img in film.find_elements(By.TAG_NAME,"img"):
         print(img.get_attribute("src"))
         urllib.request.urlretrieve(img.get_attribute("src"), str(i)+".png")
-        flm = film.text.replace(".", "*")
-        flm = flm.replace(")", "")
-        flm = flm.replace("\n", "*")
-        flm = flm.replace("(", "*")
-        flm = flm.split("*", 3)
+        flm = film.text.split(".",1)
+        del flm[0]
+        flm[0] = flm[0].replace(")", "")
+        flm[0] = flm[0].replace("\n", "*")
+        flm[0] = flm[0].replace("(", "*")
+        flm = flm[0].split("*", 3)
+        print(flm)
         filmList.append(
-            {"No": flm[0]+".",
+            {"No": str(i)+".",
             "Gambar": "PhotoTop100Film/"+ str(i) + ".png",
-            "Judul": flm[1],
-            "Tahun": flm[2],
-            "Rating": flm[3],
+            "Judul": flm[0],
+            "Tahun": flm[1],
+            "Rating": flm[2],
             }
         )
         i = i+1
