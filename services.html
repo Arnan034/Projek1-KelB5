@@ -124,41 +124,90 @@
 
    <section>
 		<!-- services section start -->
-      <!DOCTYPE html>
+  <!DOCTYPE html>
 <html>
-  <head>
+   <head>
+      <title>My Website</title>
+   </head>
    <body style="filter: grayscale(100%);">
-      <h1 style="color: black;">Daftar Berita</h1>
-      <table id="berita" style="color: black;">
-        <thead>
-          <tr>
-            <th>Judul</th>
-            <th>Kategori</th>
-            <th>Tanggal</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-  
-      <script src="BeritaTerbaru.json"></script>
-      <script>
-        fetch('BeritaTerbaru.json')
-          .then(response => response.json())
-          .then(data => {
-            let berita = document.getElementById('berita').getElementsByTagName('tbody')[0];
-            data.forEach(item => {
-              let row = berita.insertRow(-1);
-              let judulCell = row.insertCell(0);
-              let kategoriCell = row.insertCell(1);
-              let tanggalCell = row.insertCell(2);
-  
-              judulCell.innerHTML = item.judul;
-              kategoriCell.innerHTML = item.kategori;
-              tanggalCell.innerHTML = item.tanggal;
-            });
-          });
-      </script>
-  </body>
+      <section id="services">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <h1 style="color: black;">Berita Terbaru</h1>
+                  <table id="berita" style="color: black;">
+                     <thead>
+                        <tr>
+                           <th>Judul</th>
+                           <th>Kategori</th>
+                           <th>Tanggal</th>
+                        </tr>
+                     </thead>
+                     <tbody></tbody>
+                  </table>
+
+                  <script>
+                     fetch('BeritaTerbaru.json')
+                        .then(response => response.json())
+                        .then(data => {
+                           let berita = document.getElementById('berita').getElementsByTagName('tbody')[0];
+                           data.forEach(item => {
+                              let row = berita.insertRow(-1);
+                              let judulCell = row.insertCell(0);
+                              let kategoriCell = row.insertCell(1);
+                              let tanggalCell = row.insertCell(2);
+
+                              judulCell.innerHTML = item.judul;
+                              kategoriCell.innerHTML = item.kategori;
+                              tanggalCell.innerHTML = item.tanggal;
+                           });
+                        });
+                  </script>
+               </div>
+            </div>
+                  <h1 style="color: black;">Top 100 Film</h1>
+                  <table id="Film" style="color: black;">
+                     <thead>
+                        <tr>
+                           <th>No</th>
+                           <th>Poster</th>
+                           <th>Judul</th>
+                           <th>Tahun</th>
+                           <th>Rating</th>
+                        </tr>
+                     </thead>
+                     <tbody></tbody>
+                  </table>
+
+                  <script>
+                     fetch('Top100Film.json')
+                        .then(response => response.json())
+                        .then(data => {
+                           let Film = document.getElementById('Film').getElementsByTagName('tbody')[0];
+                           data.forEach(item => {
+                              let row = Film.insertRow(-1);
+                              let NumCell = row.insertCell(0);
+                              let PosterCell = row.insertCell(1);
+                              let JudulCell = row.insertCell(2);
+                              let TahunCell = row.insertCell(3);
+                              let RatingCell = row.insertCell(4);
+
+                              NumCell.innerHTML = item.No;
+                              PosterCell.getElementById("Gambar").src = item.Gambar;
+                              JudulCell.innerHTML = item.Judul;
+                              TahunCell.innerHTML = item.Tahun;
+                              RatingCell.innerHTML = item.Rating;
+                           });
+                        });
+                  </script>
+               </div>
+            </div>
+         </div>
+      </section>
+   </body>
+</html>
+
+
 </html>
 	</section>
          </div>
