@@ -32,7 +32,7 @@ for film in driver.find_elements(By.CLASS_NAME, "media"):
             }
         )
         i = i+1
-    if i > 100: 
+    if i > 200: 
         break;
 
 hasil_scraping = open("Top100Film.json", "w")
