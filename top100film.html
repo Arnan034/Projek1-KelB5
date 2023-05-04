@@ -132,7 +132,7 @@
    <head>
       <title>My Website</title>
    </head>
-   <body>
+   <body">
       <section id="services">
          <div class="container">
             <div class="row">
@@ -149,81 +149,99 @@
                           <a class="nav-link" href="webscraping.html">Web Scraping</a>
                         </li>
                       </ul>
-                      <div class="container mt-5 mb-5">
-                        <div class="row">
-                           <div class="col">
-                              <h1 style="color: black;">Berita Terbaru</h1>
-                     <table id="berita" style="color: black;">
-                        <thead>
-                           <tr>
-                              <th>Judul</th>
-                              <th>Kategori</th>
-                              <th>Tanggal</th>
-                           </tr>
-                        </thead>
-                        <tbody></tbody>
-                     </table>
-                           </div>
-                        </div>
-                      </div>
-                  </div>
-                  <script>
-                     fetch('BeritaTerbaru.json')
-                        .then(response => response.json())
-                        .then(data => {
-                           let berita = document.getElementById('berita').getElementsByTagName('tbody')[0];
-                           data.forEach(item => {
-                              let row = berita.insertRow(-1);
-                              let judulCell = row.insertCell(0);
-                              let kategoriCell = row.insertCell(1);
-                              let tanggalCell = row.insertCell(2);
-
-                              judulCell.innerHTML = item.judul;
-                              kategoriCell.innerHTML = item.kategori;
-                              tanggalCell.innerHTML = item.tanggal;
-                           });
-                        });
-                  </script>
                </div>
             </div>
-            <div>
-         </div>
       </section>
 
+      <div class="container mt-5 mb-5">
+         <table>
+            <thead>
+               <tr>
+                  <br> <br>
+                  <h1>Top 100 Film</h1>
+                  <th>No</th>
+                  <th>Gambar</th>
+                  <th>Judul</th>
+                  <th>Tahun</th>
+                  <th>Rating</th>
+               </tr>
+            </thead>
+            <tbody id="movieTableBody">
+            </tbody>
+         </table>
+      
+         <script>
+            // Ambil data JSON dari file
+            fetch('Top100Film.json')
+               .then(response => response.json())
+               .then(data => {
+                  let movieTableBody = document.getElementById('movieTableBody');
+      
+                  // Loop untuk setiap film di data JSON
+                  data.forEach(film => {
+                     // Buat baris baru untuk setiap film
+                     let row = movieTableBody.insertRow();
+      
+                     // Tambahkan nomor urut film
+                     let no = row.insertCell(0);
+                     no.innerHTML = film.No;
+      
+                     // Tambahkan gambar film
+                     let gambar = row.insertCell(1);
+                     let img = document.createElement('img');
+                     img.src = film.Gambar;
+                     img.alt = film.Judul;
+                     gambar.appendChild(img);
+      
+                     // Tambahkan judul film
+                     let judul = row.insertCell(2);
+                     judul.innerHTML = film.Judul;
+      
+                     // Tambahkan tahun rilis film
+                     let tahun = row.insertCell(3);
+                     tahun.innerHTML = film.Tahun;
+      
+                     // Tambahkan rating film
+                     let rating = row.insertCell(4);
+                     rating.innerHTML = film.Rating;
+                  });
+               });
+         </script>
+      </div>
       <!-- copyright section start -->
       <footer>
-         <div class="copyright_section">
-            <div class="container">
-               <div class="row">
-               <div class="col copyright_text">
-                  USEFUL LINKS
-                  <ul>
-                  <br>  
-                  <a href="index.html">Home</a></li><br>
-                  <a href="about.html">About</a></li><br>
-                  <a href="services.html">Services</a></li><br>
-                  <a href="blog.html">Blog</a></li><br>
-                  <a href="contact.html">Contact</a></li>
-               </div>
-               <div class="col copyright_text">
-                  CONTACT
-                  <ul>
-                  <br>
-                     <div class="call_text"><img width="20" height="10" controls src="images/call-icon.png"></div>
-                     <div class="call_text"><a href="#">Call (022) 2013789</a></div>
-                     <div class="call_text"><img width="35" height="30" controls src="images/mail-icon.png"></div>
-                     <div class="call_text"><a href="#">Azure@polban.ac.id</a></div>
-                  </ul>      
-               </div>
-               </div>
+      <div class="copyright_section">
+         <div class="container">
+            <div class="row">
+              <div class="col copyright_text">
+                USEFUL LINKS
+                <ul>
+                <br>  
+                <a href="index.html">Home</a></li><br>
+                <a href="about.html">About</a></li><br>
+                <a href="services.html">Services</a></li><br>
+                <a href="blog.html">Blog</a></li><br>
+                <a href="contact.html">Contact</a></li>
+              </div>
+              <div class="col copyright_text">
+               CONTACT
+               <ul>
+               <br>
+                  <div class="call_text"><img width="20" height="10" controls src="images/call-icon.png"></div>
+                  <div class="call_text"><a href="#">Call (022) 2013789</a></div>
+                  <div class="call_text"><img width="35" height="30" controls src="images/mail-icon.png"></div>
+                  <div class="call_text"><a href="#">Azure@polban.ac.id</a></div>
+               </ul>      
+              </div>
             </div>
-            <div class="container">
-               <p class="copyright_text">
-                  <br>2023 All Rights Reserved. Design by <a href="https://html.design">Free html
-                     Templates</a> Distributed by <a href="https://themewagon.com">ThemeWagon</a></p>
-            </div>
+          </div>
+         <div class="container">
+            <p class="copyright_text">
+               <br>2023 All Rights Reserved. Design by <a href="https://html.design">Free html
+                  Templates</a> Distributed by <a href="https://themewagon.com">ThemeWagon</a></p>
+               </div>
          </div>
-      </footer>
+         </footer>
       <!-- copyright section end -->
    </body>
 </html>
