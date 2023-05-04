@@ -124,14 +124,6 @@
       </div>
    </div>
    <!-- header section end -->
-
-   <section>
-		<!-- services section start -->
-  <!DOCTYPE html>
-<html>
-   <head>
-      <title>My Website</title>
-   </head>
    <body>
       <section id="services">
          <div class="container">
@@ -149,80 +141,62 @@
                           <a class="nav-link" href="webscraping.html">Web Scraping</a>
                         </li>
                       </ul>
-                      <div class="container mt-5 mb-5">
-                        <div class="row">
-                           <div class="col">
-                              <h1 style="color: black;">Berita Terbaru</h1>
-                     <table id="berita" style="color: black;">
-                        <thead>
-                           <tr>
-                              <th>Judul</th>
-                              <th>Kategori</th>
-                              <th>Tanggal</th>
-                           </tr>
-                        </thead>
-                        <tbody></tbody>
-                     </table>
-                           </div>
-                        </div>
-                      </div>
                   </div>
-                  <script>
-                     fetch('BeritaTerbaru.json')
-                        .then(response => response.json())
-                        .then(data => {
-                           let berita = document.getElementById('berita').getElementsByTagName('tbody')[0];
-                           data.forEach(item => {
-                              let row = berita.insertRow(-1);
-                              let judulCell = row.insertCell(0);
-                              let kategoriCell = row.insertCell(1);
-                              let tanggalCell = row.insertCell(2);
-
-                              judulCell.innerHTML = item.judul;
-                              kategoriCell.innerHTML = item.kategori;
-                              tanggalCell.innerHTML = item.tanggal;
-                           });
-                        });
-                  </script>
                </div>
             </div>
             <div>
          </div>
       </section>
-      <!-- copyright section start -->
-      <footer>
-         <div class="copyright_section">
-            <div class="container">
+         <div class="container mt-2 justify-content-center mt-5 mb-5">
+            <div class="col">
                <div class="row">
-               <div class="col copyright_text">
-                  USEFUL LINKS
-                  <ul>
-                  <br>  
-                  <a href="index.html">Home</a></li><br>
-                  <a href="about.html">About</a></li><br>
-                  <a href="services.html">Services</a></li><br>
-                  <a href="blog.html">Blog</a></li><br>
-                  <a href="contact.html">Contact</a></li>
+                  <h1>Web Scraping</h1>
+                  <iframe 
+                  title="webscrapings" 
+                  width="1280" 
+                  height="760" 
+                  src="https://app.powerbi.com/reportEmbed?reportId=d64a635e-5641-49c4-bd6a-82f1c5b03368&autoAuth=true&ctid=98374cd7-c8b8-413c-8476-b8722ae7e8e8" 
+                  frameborder="0" 
+                  allowFullScreen="true">
+                  </iframe>
                </div>
-               <div class="col copyright_text">
-                  CONTACT
-                  <ul>
-                  <br>
-                     <div class="call_text"><img width="20" height="10" controls src="images/call-icon.png"></div>
-                     <div class="call_text"><a href="#">Call (022) 2013789</a></div>
-                     <div class="call_text"><img width="35" height="30" controls src="images/mail-icon.png"></div>
-                     <div class="call_text"><a href="#">Azure@polban.ac.id</a></div>
-                  </ul>      
-               </div>
-               </div>
-            </div>
-            <div class="container">
-               <p class="copyright_text">
-                  <br>2023 All Rights Reserved. Design by <a href="https://html.design">Free html
-                     Templates</a> Distributed by <a href="https://themewagon.com">ThemeWagon</a></p>
             </div>
          </div>
-      </footer>
+      </div>
+      <!-- copyright section start -->
+      <footer>
+      <div class="copyright_section">
+         <div class="container">
+            <div class="row">
+              <div class="col copyright_text">
+                USEFUL LINKS
+                <ul>
+                <br>  
+                <a href="index.html">Home</a></li><br>
+                <a href="about.html">About</a></li><br>
+                <a href="services.html">Services</a></li><br>
+                <a href="blog.html">Blog</a></li><br>
+                <a href="contact.html">Contact</a></li>
+              </div>
+              <div class="col copyright_text">
+               CONTACT
+               <ul>
+               <br>
+                  <div class="call_text"><img width="20" height="10" controls src="images/call-icon.png"></div>
+                  <div class="call_text"><a href="#">Call (022) 2013789</a></div>
+                  <div class="call_text"><img width="35" height="30" controls src="images/mail-icon.png"></div>
+                  <div class="call_text"><a href="#">Azure@polban.ac.id</a></div>
+               </ul>      
+              </div>
+            </div>
+          </div>
+         <div class="container">
+            <p class="copyright_text">
+               <br>2023 All Rights Reserved. Design by <a href="https://html.design">Free html
+                  Templates</a> Distributed by <a href="https://themewagon.com">ThemeWagon</a></p>
+               </div>
+         </div>
+         </footer>
       <!-- copyright section end -->
    </body>
 </html>
